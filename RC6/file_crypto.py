@@ -1,0 +1,1 @@
+#CITIRE BINARA FISIER , spargem in blocuri , criptare .. !sa luam un pachet de cate un bloc ; algoritm de key agreement - sa avem aceeasi cheie 

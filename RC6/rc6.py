@@ -3,9 +3,9 @@ WORD_MASK = 0xFFFFFFFF  # Masca pentru a pastra valorile pe 32 de biti (42949672
 
 class RC6:
     def __init__(self):
-        self.w = 32  # dimensiunea unui cuvânt (word) in biti
+        self.w = 32  # dimensiunea unui cuvant in biti
         self.r = 20  # nr de runde de criptare/decriptare
-        self.lgw = 5  
+        self.lgw = 5  # pentru shiftare / rotatie
         self.P32 = 0xB7E15163  # constanta
         self.Q32 = 0x9E3779B9  # constanta folosita la generarea cheilor
 
@@ -39,8 +39,8 @@ class RC6:
             i = (i + 1) % (2 * r + 4)  # increment circular
             j = (j + 1) % c  # increment circular pentru cheia L
 
-        return S  # returnăm cheia extinsă
-
+        return S  # se returneaza cheia extinsa
+    
     def encrypt_unsigned_integer(self, input: List[int], S: List[int], r: int) -> List[int]:
         A, B, C, D = input  # impartire bloc de 128 biti in patru cuvinte de cate 32 biti
         B = (B + S[0]) & WORD_MASK  # adaugare subcheie la B
